@@ -106,19 +106,19 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../layout/fixed-topnav.html" class="nav-link">
+                            <a href="{{ route('product.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Fixed Navbar</p>
+                                <p>Produk</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../layout/fixed-footer.html" class="nav-link">
+                            <a href="{{ route('category.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Fixed Footer</p>
+                                <p>Kategori</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('user.index') ? 'active' : '' }}" class="nav-link active">
+                            <a href="{{ route('user.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>User</p>
                             </a>

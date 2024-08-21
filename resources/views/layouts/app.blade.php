@@ -26,7 +26,7 @@
         @include('inc.sidebar')
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
+        <div class="content-wrapper" style="background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%);">
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <div class="container-fluid">

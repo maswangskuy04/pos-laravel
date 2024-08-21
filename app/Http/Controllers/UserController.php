@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -21,7 +22,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.create');
     }
 
     /**
@@ -29,7 +30,18 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $validate = $request->validate([
+        //     'name' => 'required',
+        //     'email' => 'email|required',
+        //     'password' => 'password|min:10'
+        // ]);
+
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password
+        ]);
+        return redirect()->to('user')->with('message', 'Data berhasil di simpan');
     }
 
     /**
@@ -45,7 +57,8 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $edit = User::findOrFail($id);
+        return view('user.edit', compact('edit'));
     }
 
     /**
@@ -53,7 +66,13 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $user = User::find($id);
+        User::where('id', $id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => ($request->password ? Hash::make($request->password) : $user->password)
+        ]);
+        return redirect()->to('user')->with('message', 'Data berhasil di ubah brooh');
     }
 
     /**
@@ -61,6 +80,7 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        User::where('id', $id)->delete();
+        return redirect()->to('user')->with('message', 'Data berhasil di hapus brooh');
     }
 }
