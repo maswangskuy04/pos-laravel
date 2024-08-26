@@ -4,7 +4,7 @@
 @section('content')
 <div class="table-responsive">
     <a href="{{ route('user.create') }}" class="btn btn-primary btn-xs mb-3">Tambah Data</a>
-    <table class="table table-bordered">
+    <table class="table table-bordered bg-dark">
         <thead>
             <tr>
                 <th>No</th>
